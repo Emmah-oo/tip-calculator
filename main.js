@@ -37,9 +37,9 @@ peopleInput.addEventListener("input", () => {
 });
 
 //this is to get the values of the tips divs by dividing them by 100 to get
-function handleClick(event) {
-  tips.forEach(function (val) {
-    if (event.target.innerHTML == val.innerHTML) {
+function handleClick(e) {
+  tips.forEach(val => {
+    if (e.target.innerHTML == val.innerHTML) {
       tipValue = parseFloat(val.innerHTML) / 100;
     }
   });
@@ -53,7 +53,7 @@ custom.addEventListener("input", () => {
 
 const calculation = () => {
   let tipAmountPerPerson = (billValue * tipValue) / peopleValue;
-  let totalPerPerson = (billValue + tipAmountPerPerson) / peopleValue;
+  let totalPerPerson = (billValue / peopleValue) + tipAmountPerPerson;
   tipAmount.innerHTML = "$" + tipAmountPerPerson;
   total.innerHTML = "$" + totalPerPerson;
 };
